@@ -1,3 +1,4 @@
+import {InputArea, InputField} from "./InputField";
 
 
 export function FilmModal(props) {
@@ -48,11 +49,11 @@ export function FilmModal(props) {
 
 
                             <div id="filmInputFieleds">
-                                <label htmlFor="helper-text"
-                                       className="text-base text-gray-900 dark:text-white font-bold">Film name</label>
-                                <input id="helper-text" aria-describedby="helper-text-explanation"
-                                       className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                       placeholder="Lord of the Rings, Oldboy, ..."/>
+                                <InputField label="Film title" placeholder="Lord of the Rings, Oldboy, ..."></InputField>
+                                <div className="m-4"></div>
+
+                                <InputArea label="Film Description" placeholder="The film was sh..." rows="4"></InputArea>
+
                             </div>
 
                         </div>
