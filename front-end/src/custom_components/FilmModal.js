@@ -45,7 +45,7 @@ export function FilmModal(props) {
                                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
                                             className="font-semibold">Upload film picture</span></p>
                                         <p className="text-xs text-gray-500 dark:text-gray-400">Drag and drop / click to upload</p>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">PNG or JPG
                                             (MAX. 800x400px)</p>
                                     </div>
                                     <input id="dropzone-file" type="file" className="hidden"/>
@@ -63,13 +63,14 @@ export function FilmModal(props) {
                                     <a className="text-slate-50 text-8xl font-teko">{rangeValue} / 10</a>
                                 </div>
 
+
                             </div>
 
                         </div>
 
                         <div
                             className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                            <button data-modal-hide="defaultModal" type="button"
+                            <button data-modal-hide="defaultModal" type="button" onClick={props.addFunction}
                                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Add
                             </button>

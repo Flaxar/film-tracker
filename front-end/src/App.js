@@ -7,12 +7,23 @@ import {
 } from '@heroicons/react/24/outline'
 
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ')
-// }
+
+
 
 export default function Site() {
   const [isOpen, setIsOpen] = useState(false);
+  const [cards, setCards] = useState([<Card></Card>]);
+
+  function addFilm() {
+    addCard(<Card></Card>)
+
+    setIsOpen(false);
+  }
+
+  function addCard(element) {
+    setCards([...cards, element])
+  }
+
 
   return (
       <>
@@ -35,11 +46,13 @@ export default function Site() {
         </header>
 
         <div className="flex justify-center align-middle">
-          <FilmModal visible={isOpen} closeFunction={() => setIsOpen(false)}></FilmModal>
+          <FilmModal visible={isOpen} closeFunction={() => setIsOpen(false)} addFunction={() => addFilm()}></FilmModal>
         </div>
 
-        <div className="flex m-2">
-          <Card></Card>
+        <div className="flex m-2 grid gap-2 grid-cols-5">
+          {
+            cards
+          }
         </div>
 
       </>
