@@ -1,7 +1,12 @@
-import {InputArea, InputField} from "./InputField";
+import {InputArea, InputField, InputStepper} from "./InputField";
+import {useState} from "react";
+
+
 
 
 export function FilmModal(props) {
+    const [ rangeValue, setRangevalue ] = useState(0);
+
     if(props.visible) {
         return (
             <div id="defaultModal" tabIndex="-1" aria-hidden="true"
@@ -18,7 +23,7 @@ export function FilmModal(props) {
                                     data-modal-hide="defaultModal">
                                 <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                      xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
+                                                <path fill-rule="evenodd"
                                           d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                           clip-rule="evenodd"></path>
                                 </svg>
@@ -48,11 +53,15 @@ export function FilmModal(props) {
                             </div>
 
 
-                            <div id="filmInputFieleds">
+                            <div id="filmInputFieleds" className="flex-col">
                                 <InputField label="Film title" placeholder="Lord of the Rings, Oldboy, ..."></InputField>
                                 <div className="m-4"></div>
-
                                 <InputArea label="Film Description" placeholder="The film was sh..." rows="4"></InputArea>
+                                <div className="m-4"></div>
+                                <InputStepper label="Rating" min="0" max="10" step="0.5" changeValue={setRangevalue}></InputStepper>
+                                <div className="justify-center flex mt-7 mb-5">
+                                    <a className="text-slate-50 text-8xl font-teko">{rangeValue} / 10</a>
+                                </div>
 
                             </div>
 
@@ -61,11 +70,12 @@ export function FilmModal(props) {
                         <div
                             className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                             <button data-modal-hide="defaultModal" type="button"
-                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-                                accept
+                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Add
                             </button>
                             <button data-modal-hide="defaultModal" type="button" onClick={props.closeFunction}
-                                    className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline
+                                    className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+                                Discard
                             </button>
                         </div>
                     </div>
